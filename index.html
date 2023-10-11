@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>web này cho LTH thuiiii🌷</title>
+    <style>
+        body {
+            background: linear-gradient(135deg, #0052D4, #6FB1FC, #2193b0);
+            color: #fff;
+            font-family: "Arial", sans-serif;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        #container {
+            background-color: #333;
+            background-image: url('z4775021906793_7799b8530b89ebfad136b571f12e272a.jpg'); /* Thay 'your-image-url.jpg' bằng URL của ảnh bạn muốn sử dụng */
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+            text-align: center;
+            animation: float 5s infinite;
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translate(0, 0);
+            }
+            25% {
+                transform: translate(0, -10px);
+            }
+            50% {
+                transform: translate(0, 0);
+            }
+            75% {
+                transform: translate(0, 10px);
+            }
+        }
+
+        input, button {
+            margin: 10px;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            font-size: 18px;
+        }
+
+        input[type="date"] {
+            background-color: #444;
+            color: #fff;
+        }
+
+        button {
+            cursor: pointer;
+            background-color: #ff6d00;
+            color: #fff;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #ff3a00;
+        }
+
+        h1 {
+            font-size: 24px;
+            color: #ff6d00;
+        }
+
+        label {
+            display: block;
+            font-size: 18px;
+            color: #333;
+        }
+
+        #result-years {
+            font-size: 24px;
+            margin-top: 20px;
+        }
+
+        #result-hours {
+            font-size: 24px;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <h1>Đây em tính ở đây nàyyyyy</h1>
+        <label for="start-date">Từ</label>
+        <input type="date" id="start-date">
+        <br>
+        <label for="end-date">Đến</label>
+        <input type="date" id="end-date">
+        <br>
+        <button onclick="calculateTime()">Úm ba laaaa</button>
+        <p id="result-years"></p>
+        <p id="result-hours"></p>
+    </div>
+
+    <audio id="background-music" autoplay loop>
+        <source src="TinhCoYeuEm-KuunDucNam-9634825.mp3" type="audio/mpeg">
+    </audio>
+
+    <script>
+        function calculateTime() {
+    const startDate = new Date(document.getElementById("start-date").value);
+    const endDate = new Date(document.getElementById("end-date").value);
+
+    const timeDifference = endDate - startDate;
+    const daysDifference = timeDifference / (1000 * 60 * 60 * 24);
+    const years = Math.floor(daysDifference / 365);
+    const months = Math.floor((daysDifference % 365) / 30);
+    const days = Math.floor((daysDifference % 365) % 30);
+
+    document.getElementById("result-years").textContent = `${years} năm ${months} tháng ${days} ngày`;
+
+    // Lấy thời điểm hiện tại
+    const currentDate = new Date();
+    const hours = currentDate.getHours();
+    const minutes = currentDate.getMinutes();
+    const seconds = currentDate.getSeconds();
+
+    document.getElementById("result-hours").textContent = `${hours} giờ ${minutes} phút ${seconds} giây`;
+
+    const backgroundMusic = document.getElementById("background-music");
+    backgroundMusic.play();
+}
+
+        
+    </script>
+</body>
+</html>
